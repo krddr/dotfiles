@@ -152,12 +152,3 @@ endfunction
 
 " Make some configuration changes after plugins have loaded.
 autocmd VimEnter * call CustomizePluginsLate()
-
-""" VMware Help """
-
-ab FUNCHEAD /*<CR><BS>-----------------------------------------------------------------------------<CR> *<CR>Module_Funtion --<CR><CR>     XXX Description...<CR><CR><BS><BS><BS><BS><BS>Results:<CR>     None.<CR><CR><BS><BS><BS><BS><BS>Side effects:<CR>     None.<CR><CR><BS><BS><BS><BS><BS><BS>-----------------------------------------------------------------------------<CR> */<CR>
-
-ab VMWCOPYRIGHT /* **********************************************************<CR>Copyright <ESC>:r !date '+\%Y'<CR>kJA VMware, Inc.  All rights reserved. -- VMware Confidential<CR>**********************************************************/
-
-imap <F2> FUNCHEAD
-imap <F3> VMWCOPYRIGHT
