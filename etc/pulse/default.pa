@@ -1,0 +1,2 @@
+# Switch to USB DAC on connect (when it's turned on).
+load-module module-switch-on-connect
