@@ -89,4 +89,6 @@ PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
 
 # source setting that should not be displayed publicly.
-. ~/.bashrc_internal
+if [ -f ~/.bashrc_internal ]; then
+   . ~/.bashrc_internal
+fi
