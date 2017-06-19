@@ -15,6 +15,8 @@ Xft.hintstyle:              hintslight
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
 
+URxvt*iconFile:             /usr/share/icons/gnome/256x256/apps/utilities-terminal.png
+
 URxvt.depth:                32
 URxvt.geometry:             90x30
 URxvt.transparent:          false
@@ -31,11 +33,13 @@ URxvt.allow_bold:           false
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
 !URxvt*font: xft:Monospace:pixelsize=14
 !URxvt*boldFont: xft:Monospace:pixelsize=14
-URxvt*font: xft:Inconsolata:pixelsize=14
-URxvt*boldFont: xft:Inconsolata:pixelsize=14
+URxvt*font: xft:Literation Mono Powerline:pixelsize=15
+URxvt*boldFont: xft:Literation Mono Powerline Bold:pixelsize=15
+!URxvt*font: xft:Inconsolata:pixelsize=14
+!URxvt*boldFont: xft:Inconsolata:pixelsize=14
 
 ! Fix font space
-URxvt*letterSpace: -1
+URxvt*letterSpace: -2
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
@@ -49,50 +53,60 @@ URxvt.perl-ext-common:      default,vtwheel
 
 ! Cursor
 URxvt.cursorBlink:          true
-URxvt.cursorColor:          #657b83
+!URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
 
-!!Source http://github.com/altercation/solarized
+URxvt*background:        #262729
+URxvt*foreground:        #dddddd
+URxvt*cursorColor:       #8c817e
+URxvt*colorBD:           #585653
+URxvt*colorUL:           #6c615e
 
-*background: #002b36
-*foreground: #839496
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
-
-!! black dark/light
-*color0: #073642
-*color8: #002b36
-
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+!! jellybeans colors
+! 8 8 8
+! *background: #080808
+! 128 128 128
+! *foreground: #808080
+! black
+! 26 26 26
+*color0:  #1a1a1a
+! 64 64 64
+*color8:  #404040
+! red
+! 215 95 95
+*color1:  #d75f5f
+! 234 132 132
+*color9:  #EA8484
+! green
+! 135 175 95
+*color2:  #87af5f
+! 199 240 159
+*color10: #C7F09F
+! yellow
+! 255 175 95
+*color3:  #ffaf5f
+! 255 204 154
+*color11: #FFCC9A
+! blue
+! 135 175 215
+*color4:  #87afd7
+! 165 202 239
+*color12: #a5caef
+! magenta
+! 135 135 175
+*color5:  #8787af
+! 166 166 222
+*color13: #A6A6DE
+! cyan
+! 95 135 135
+*color6:  #5f8787
+! 105 178 178
+*color14: #69b2b2
+! white
+! 128 128 128
+*color7:  #808080
+! 215 215 215
+*color15: #d7d7d7

@@ -64,6 +64,7 @@ fi
 alias ll='ls -lsh'
 alias la='ls -A'
 alias l='ls -CF'
+alias tmux='tmux -2'
 
 # some bindings that make bash work like the rest of the environment
 # 1. use ctrl+arrows to move forward and back by word

@@ -3,12 +3,14 @@
 "
 "    font:  Inconsolata (11pt)
 "             http://packages.ubuntu.com/hardy/ttf-inconsolata
-"             sudo apt-get install font-inconsolata
+"             sudo apt-get install fonts-inconsolata
 "           Liberation Mono (10pt)
 "    color: solarized
 "             https://github.com/altercation/vim-colors-solarized
 "             https://github.com/Anthony25/gnome-terminal-colors-solarized
 "             https://github.com/seebi/dircolors-solarized
+"    color: jellybeans
+"             https://github.com/nanotech/jellybeans.vim
 "
 
 " These suffixes take lower priority when matching.
@@ -39,25 +41,6 @@ set hlsearch            " Highlight all matches in text search
 set incsearch           " Jump to word as you search
 set cursorline          " Highlight the current line
 
-""" Colors """
-
-" Prefer the solarized color scheme
-try
-   colorscheme solarized
-   " urxvt only supports 88 colors and that causes tmux to drop to 8
-   " colors. This forces vim back up to the 16 required by solarized.
-   " Alternatively, use the rxvt-unicode-256color package.
-   set t_Co=16
-   " When using transparent background
-   "let g:solarized_termtrans=1
-   if has('gui_running')
-      set background=light
-   else
-      set background=dark
-   endif
-catch /^Vim\%((\a\+)\)\=:E185/
-endtry
-
 """ Format Help """
 
 syntax on               " Always use syntax highlighting.
@@ -83,6 +66,9 @@ set formatoptions-=t
 " Conform to some subtle standards guidlines that deal with alignment.
 set cinoptions=g0,t0,c1s,(0,m1,l1
 set cinwords+=case
+
+" Overides for specific file types.
+autocmd FileType java setlocal shiftwidth=4 tabstop=4
 
 " Make sure block comments format nicely.
 set comments=sl:/*,mb:\ *,elx:\ */
@@ -119,6 +105,7 @@ nnoremap <Leader>s :setlocal spell! spelllang=en_us<CR>
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>y "*y
 nnoremap <Leader>p "*p
+nnoremap <Leader>f :CtrlP<CR>
 nnoremap <silent> <Leader>m :let &mouse = ( &mouse == "a" ? "" : "a" )<CR>
 nnoremap <silent> <Leader>b :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 nnoremap <silent> <leader>c :set nolist!<CR>
@@ -133,15 +120,26 @@ noremap <C-H> <C-W><C-H>
 noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
+""" Colors """
+
+try
+   colorscheme jellybeans
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
+
 """ Plugins """
 
-" Set airline preferences before the plugin loads.
-let g:airline#extensions#tabline#enabled = 1
-if !exists('g:airline_powerline_fonts')
-   " Use the default set of separators with a few customizations
-   let g:airline_left_sep='›'  " Slightly fancier than '>'
-   let g:airline_right_sep='‹' " Slightly fancier than '<'
+execute pathogen#infect()
+
+"" Airline
+
+"" Set airline preferences before the plugin loads.
+if !exists('g:airline_symbols')
+   let g:airline_symbols = {}
 endif
+let g:airline_theme = 'distinguished'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 function! CustomizePluginsLate()
    if exists('g:loaded_airline')
@@ -152,3 +150,12 @@ endfunction
 
 " Make some configuration changes after plugins have loaded.
 autocmd VimEnter * call CustomizePluginsLate()
+
+"" CtrlP
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"" vim-android
+
+let g:android_sdk_path = '~/Android/Sdk'
+
